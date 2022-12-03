@@ -7,7 +7,12 @@
     buttons.forEach(function (button) {
         button.addEventListener('click', function (e) {
             let value = e.target.dataset.num;
-            screen.value += value;
+            if (screen.value === "Please enter") {
+                screen.value = value
+            } else {
+
+                screen.value += value;
+            }
         })
     });
 
@@ -16,7 +21,6 @@
             screen.value = "Please enter";
         } else {
             let answer = eval(screen.value)
-            console.log(answer)
             screen.value = answer
         }
     })
